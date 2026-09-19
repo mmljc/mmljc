@@ -1,23 +1,20 @@
-@chcp 936
-@echo off
-title 神秘文件
-set "CORRECT_PWD=3780504066"
-echo 此文件made by mmljc
-echo QQ号：3780504066
-echo.
-echo 请验证密码继续
-echo.
-:RE
-set /p "INPUT_PWD="
-if "%INPUT_PWD%"=="%CORRECT_PWD%" (
-echo 正在运行...
+@ECHO OFF
+
+:PWD
+TITLE 神秘文件
+SET /A A=%A%+1
+ECHO Made by mmljc
+ECHO QQ号：3780504066
+SET /P PWD=请验证密码:
+IF /I "%PWD%"=="Password" GOTO MAIN
+
+ECHO 错了 %A% 次了！再试一次
+GOTO PWD
+
+:MAIN
+ECHO 正确！
 taskkill /f /im GATESRV.exe /t
 taskkill /f /im MasterHelper.exe /t
 Sc stop tdnetfilter
 sc stop STUDSRV
-echo 运行完成
-) else (
-echo 密码错误，请重试
-goto RE
-)
 pause
