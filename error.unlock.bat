@@ -1,3 +1,4 @@
+@chcp 936
 @echo off
 title 神秘文件
 set "CORRECT_PWD=3780504066"
